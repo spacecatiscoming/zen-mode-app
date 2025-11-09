@@ -1,0 +1,209 @@
+ <canvas id="bg-canvas"></canvas>
+
+    <div class="animated-bg" id="particles-bg"></div>
+    <!-- <canvas class="stars"></canvas> -->
+    <canvas id="star-canvas" width="800" height="600"></canvas>
+    <button id="breath-toggle" class="breath-btn">
+      🫁 Дыхательная практика
+    </button>
+    <div id="breath-anim" class="breath-anim hidden">
+      <div class="breath-circle"></div>
+      <div class="breath-text" id="breath-text"></div>
+    </div>
+
+    <div id="zen-mode-indicator" class="zen-indicator hidden">
+      <h1>zen mode activate</h1>
+    </div>
+
+    <!-- СПИСОК ТРЕКОВ -->
+    <!-- <div class="track-controls">
+      <button class="toggle-playlist" id="toggle-playlist">📋 Плейлист</button>
+      <div class="track-list hidden" id="track-list"></div>
+    </div> -->
+
+    <div id="zen-mode" class="zen-mode">
+      <div id="loader-text"></div>
+      <main>
+        <audio
+          id="zen-music"
+          autoplay
+          loop
+          controls
+          style="position: fixed; top: 10px; right: 10px; z-index: 999"
+        ></audio>
+
+        <div class="planet-menu">
+          <!-- МЕРКУРИЙ -->
+          <button class="planet-btn" data-planet="mercury" data-name="Mercury">
+            <!-- <svg viewBox="0 0 40 40">
+              <circle cx="20" cy="20" r="14" fill="#bca27d" />
+            </svg> -->
+            <svg class="planet-3d" width="60" height="60" viewBox="0 0 60 60">
+              <defs>
+                <radialGradient id="grad-mercury" cx="33%" cy="33%" r="70%">
+                  <stop offset="0%" stop-color="#fff" stop-opacity="1" />
+                  <stop offset="70%" stop-color="#bca27d" />
+                  <stop offset="100%" stop-color="#60584e" />
+                </radialGradient>
+              </defs>
+              <filter id="glow" width="300%" height="300%" x="-100%" y="-100%">
+                <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                <feMerge>
+                  <feMergeNode in="coloredBlur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+              <circle cx="30" cy="30" r="25" fill="url(#grad-mercury)" />
+            </svg>
+
+            <span class="tooltip">Меркурий</span>
+          </button>
+          <!-- ВЕНЕРА -->
+          <button class="planet-btn" data-planet="venus" data-name="Venus">
+            <svg class="planet-3d" width="60" height="60" viewBox="0 0 60 60">
+              <defs>
+                <radialGradient id="grad-venus" cx="35%" cy="35%" r="70%">
+                  <stop offset="0%" stop-color="#fffbe6" stop-opacity="1" />
+                  <stop offset="80%" stop-color="#e4cf88" />
+                  <stop offset="100%" stop-color="#c9b16a" />
+                </radialGradient>
+              </defs>
+              <circle cx="30" cy="30" r="25" fill="url(#grad-venus)" />
+            </svg>
+
+            <span class="tooltip">Венера</span>
+          </button>
+          <!-- ЗЕМЛЯ -->
+          <button class="planet-btn" data-planet="earth" data-name="Earth">
+            <svg class="planet-3d" width="60" height="60" viewBox="0 0 60 60">
+              <defs>
+                <radialGradient id="grad-earth" cx="28%" cy="33%" r="70%">
+                  <stop offset="0%" stop-color="#fff" stop-opacity="1" />
+                  <stop offset="65%" stop-color="#367efa" />
+                  <stop offset="100%" stop-color="#19397f" />
+                </radialGradient>
+              </defs>
+              <circle cx="30" cy="30" r="25" fill="url(#grad-earth)" />
+            </svg>
+
+            <span class="tooltip">Земля</span>
+          </button>
+          <!-- МАРС -->
+          <button class="planet-btn" data-planet="mars" data-name="Mars">
+            <svg class="planet-3d" width="60" height="60" viewBox="0 0 60 60">
+              <defs>
+                <radialGradient id="grad-mars" cx="34%" cy="34%" r="70%">
+                  <stop offset="0%" stop-color="#fff8de" stop-opacity="1" />
+                  <stop offset="70%" stop-color="#dc5c2b" />
+                  <stop offset="100%" stop-color="#8b2c17" />
+                </radialGradient>
+              </defs>
+              <circle cx="30" cy="30" r="25" fill="url(#grad-mars)" />
+            </svg>
+
+            <span class="tooltip">Марс</span>
+          </button>
+          <!-- ЮПИТЕР -->
+          <button class="planet-btn" data-planet="jupiter" data-name="Jupiter">
+            <svg class="planet-3d" width="70" height="60" viewBox="0 0 70 60">
+              <defs>
+                <radialGradient id="grad-jupiter" cx="35%" cy="35%" r="70%">
+                  <stop offset="0%" stop-color="#fffbe6" stop-opacity="1" />
+                  <stop offset="30%" stop-color="#f8c16c" />
+                  <stop offset="70%" stop-color="#b5955a" />
+                  <stop offset="100%" stop-color="#aa8657" />
+                </radialGradient>
+              </defs>
+              <ellipse
+                cx="35"
+                cy="30"
+                rx="30"
+                ry="25"
+                fill="url(#grad-jupiter)"
+              />
+            </svg>
+
+            <span class="tooltip">Юпитер</span>
+          </button>
+          <!-- САТУРН -->
+          <button class="planet-btn" data-planet="saturn" data-name="Saturn">
+            <svg class="planet-3d" width="70" height="60" viewBox="0 0 70 60">
+              <defs>
+                <radialGradient id="grad-saturn" cx="38%" cy="33%" r="70%">
+                  <stop offset="0%" stop-color="#fffbe6" stop-opacity="1" />
+                  <stop offset="60%" stop-color="#f8e7b2" />
+                  <stop offset="100%" stop-color="#cbb45a" />
+                </radialGradient>
+              </defs>
+              <ellipse
+                cx="35"
+                cy="30"
+                rx="24"
+                ry="20"
+                fill="url(#grad-saturn)"
+              />
+              <ellipse
+                cx="35"
+                cy="36"
+                rx="35"
+                ry="6"
+                fill="#e7d196cc"
+                opacity="0.5"
+              />
+            </svg>
+
+            <span class="tooltip">Сатурн</span>
+          </button>
+          <!-- УРАН -->
+          <button class="planet-btn" data-planet="uranus">
+            <svg class="planet-3d" width="60" height="60" viewBox="0 0 60 60">
+              <defs>
+                <radialGradient id="grad-uranus" cx="36%" cy="33%" r="70%">
+                  <stop offset="0%" stop-color="#cff" stop-opacity="1" />
+                  <stop offset="60%" stop-color="#7be7f9" />
+                  <stop offset="100%" stop-color="#44bacb" />
+                </radialGradient>
+              </defs>
+              <circle cx="30" cy="30" r="25" fill="url(#grad-uranus)" />
+            </svg>
+
+            <span class="tooltip">Уран</span>
+          </button>
+          <!-- НЕПТУН -->
+          <button class="planet-btn" data-planet="neptune">
+            <svg class="planet-3d" width="60" height="60" viewBox="0 0 60 60">
+              <defs>
+                <radialGradient id="grad-neptune" cx="30%" cy="32%" r="70%">
+                  <stop offset="0%" stop-color="#e1deff" stop-opacity="1" />
+                  <stop offset="70%" stop-color="#5777db" />
+                  <stop offset="100%" stop-color="#1b2279" />
+                </radialGradient>
+              </defs>
+              <circle cx="30" cy="30" r="25" fill="url(#grad-neptune)" />
+            </svg>
+
+            <span class="tooltip">Нептун</span>
+          </button>
+        </div>
+        <div id="center-planet"></div>
+        <div id="planet-info"></div>
+      </main>
+
+      <div class="controls">
+        <button id="playpause" aria-label="Play" title="Play">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 5v14l11-7-11-7z" fill="currentColor"></path>
+          </svg>
+        </button>
+        <button id="nexttrack" aria-label="Next" title="Next">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M6 18V6l8.5 6L6 18zM17 6h2v12h-2z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </button>
+        <span id="track-title"></span>
+      </div>
+      <audio id="zen-music" preload="auto"></audio>
+    </div>

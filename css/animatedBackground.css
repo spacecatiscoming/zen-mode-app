@@ -1,0 +1,42 @@
+/* ПЛАВАЮЩИЕ ЧАСТИЦЫ */
+.animated-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f141a 0%, #263355 100%);
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, #ffffffcc 0%, #ffffff10 80%);
+  opacity: 0.75;
+  animation: float-particle 7s ease-in-out infinite;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-35px) scale(1.15);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.1;
+  }
+}
+/* КОНЕЦ ПЛАВАЮЩИХ ЧАСТИЦ */

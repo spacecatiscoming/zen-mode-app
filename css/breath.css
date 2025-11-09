@@ -1,0 +1,193 @@
+/* ДЫХАТЕЛЬНАЯ ПРАКТИКА СТИЛИ */
+/* КОСМИЧЕСКИЙ ФОН ДЛЯ СТРАНИЦЫ ДЫХАНИЯ */
+.breathing-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  background: radial-gradient(ellipse at 50% 60%, #1c2734 0%, #273a50 44%, #421c1c 100%);
+  pointer-events: none;
+}
+
+.breathing-page {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  width: 100vw;
+  gap: 1.2em;
+}
+
+.breath-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.3em;
+  letter-spacing: 0.07em;
+  color: #82d0f6;
+  text-align: center;
+  width: 100%;
+  text-shadow: 0 0 24px #2f7fa7a8;
+}
+
+/* Селектор режимов */
+.breathing-modes {
+  display: flex;
+  gap: 0.85em;
+  justify-content: center;
+  margin-bottom: 1.1em;
+  flex-wrap: wrap;
+}
+.mode-btn {
+  padding: 0.65em 1.22em;
+  border-radius: 1.5em;
+  background: rgba(74, 113, 161, 0.17);
+  color: #bde8fb;
+  border: 1.5px solid transparent;
+  font-size: 1.05em;
+  letter-spacing: 0.07em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, border-color 0.21s;
+  outline: none;
+  margin: 0 2px;
+}
+.mode-btn:hover, .mode-btn:focus {
+  background: rgba(122, 212, 255, 0.21);
+  color: #e0faff;
+  border-color: #60cbfd67;
+}
+.mode-btn.active {
+  background: linear-gradient(90deg, #79c1fb 15%, #2d91bc 99%);
+  color: #223558;
+  border-color: #b1ecf6c9;
+  font-weight: 700;
+}
+
+.breath-instruction {
+  font-size: 1.08rem;
+  margin-top: 0.5em;
+  color: #a3d6ef;
+  opacity: 0.92;
+  text-align: center;
+  width: 100%;
+  line-height: 1.55;
+  text-shadow: 0 0 10px #268cc766;
+  transition: opacity 0.25s;
+}
+
+.breath-btn {
+  margin: 0 auto 2em auto;
+  padding: 1em 2.3em;
+  border: none;
+  border-radius: 2em;
+  background: linear-gradient(90deg, #375759 30%, #426bb5 100%);
+  color: #e3f9ff;
+  font-size: 1.11rem;
+  cursor: pointer;
+  backdrop-filter: blur(9px);
+  border: 1px solid #7bc3ea33;
+  box-shadow: 0 2px 24px #5dcfff42;
+  transition: background 0.3s, color 0.3s, box-shadow 0.2s;
+  outline: none;
+  letter-spacing: 0.04em;
+}
+.breath-btn:hover,
+.breath-btn:focus {
+  background: linear-gradient(90deg, #426bb5 60%, #7ceae7 100%);
+  color: #2f5e69;
+  box-shadow: 0 2px 36px #85d6f781;
+}
+
+.breath-anim {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1em;
+  width: 100%;
+}
+
+.breath-anim.hidden {
+  display: none;
+}
+
+.breath-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 32%, #82e9fb 0%, #3fa6f7 65%, #293f54 100%);
+  border: 1px solid #6fe7ff66;
+  box-shadow: 0 0 38px #7fe0ff55;
+  backdrop-filter: blur(7px);
+  margin: 0 auto 0.8em auto;
+  animation: breath-flow 17s ease-in-out infinite;
+  transition: background 0.8s, box-shadow 0.8s, border-color 0.7s;
+}
+@keyframes breath-flow {
+  0% { transform: scale(0.85); opacity: 0.67; }
+  23% { transform: scale(1.2); opacity: 1; }
+  70% { transform: scale(1.2); opacity: 1; }
+  94% { transform: scale(0.85); opacity: 0.67; }
+  100% { transform: scale(0.85); opacity: 0.67; }
+}
+
+.breath-text {
+  font-size: 1.43rem;
+  font-weight: 500;
+  color: #7fdfff;
+  margin-top: 0.7em;
+  letter-spacing: 0.11em;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  transition: color 0.4s;
+  text-align: center;
+  min-width: 80px;
+  text-shadow: 0 0 14px #79e8ffa8;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 600px) {
+  .breathing-page {
+    min-height: 80vh;
+    padding: 0 8px;
+    gap: 0.8em;
+  }
+  .breath-title {
+    font-size: 1.16rem;
+    margin-bottom: 0.8em;
+  }
+  .breathing-modes { gap: 0.51em; }
+  .mode-btn { font-size: 0.96em; padding: 0.6em .75em; }
+  .breath-btn { font-size: 0.99rem; padding: 0.72em 1.1em; margin-bottom: 1em; }
+  .breath-circle { width: 74px; height: 74px; }
+  .breath-text { font-size: 1.03rem; min-width: 56px; }
+  .breath-instruction { font-size: 0.97rem; margin-top: 0.7em; }
+}
+
+.stars-canvas {
+  position: fixed;
+  z-index: 1;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+}
+
+.breath-quote {
+  font-size: 1.09rem;
+  color: #eaf8fd;
+  opacity: 0.95;
+  margin-top: 1.3em;
+  text-align: center;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  min-height: 2em;   /* чтобы не прыгало при смене */
+  transition: opacity 0.35s;
+}
+
+
+
+
+/* КОНЕЦ ДЫХАТЕЛЬНОЙ ПРАКТИКИ */

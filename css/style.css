@@ -1,0 +1,448 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #000;
+  color: #e6eaff;
+  overflow: hidden;
+}
+
+#starBtn {
+  /* position: relative; */
+  /* margin-left: 20px; */
+  position: absolute;
+  left: 5%;
+  top: 10vh;
+  padding: 0.85em 2.4em;
+  font-size: 1em;
+  font-weight: 100;
+  color: #26314a;
+  background: linear-gradient(90deg, #eef3f7 0%, #dde7ed 100%);
+  border-radius: 38px;
+  border: none;
+  box-shadow: 0 10px 32px -12px #b9c5d7c7, 0 2px 8px -2px #ecefee45;
+  cursor: pointer;
+  outline: none;
+  letter-spacing: 0.035em;
+  transition: background 0.2s, box-shadow 0.2s;
+  z-index: 100;
+}
+
+#starBtn:hover,
+#starBtn:focus {
+  background: linear-gradient(90deg, #dde7ed 0%, #ddeeed 100%);
+  color: #273354;
+  transform: scale(1.06);
+  box-shadow: 0 14px 32px -8px #b9c5d7e0, 0 2px 11px -2px #f5f8ff55;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  z-index: 10;
+  /* background: linear-gradient(90deg, rgb(5, 22, 26) 0%, rgb(64, 11, 8) 100%); */
+  /* box-shadow: 0 2px 16px #222c4444; */
+  backdrop-filter: blur(3px);
+}
+
+.nav-logo {
+  color: #e6eaff;
+  font-size: 1.3rem;
+  font-weight: 100;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 20px #111b2b88;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fafaff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 100;
+  padding: 0.49rem 1.1rem;
+  letter-spacing: 0.03em;
+  transition: all 0.6s ease-in-out;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  /* background: linear-gradient(90deg, #28435b 55%, #ab3e2c 100%); */
+  background: rgb(64, 11, 8);
+  border-radius: 35px;
+  color: #fff7de;
+  /* box-shadow: 0 4px 18px #ab3e2c33; */
+  transition: all 0.6s ease-in-out;
+}
+
+/* Бургер — как было */
+.nav-burger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 4px;
+}
+.nav-burger span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: #fafaff;
+  border-radius: 2px;
+  transition: 0.22s;
+}
+
+@media (max-width: 700px) {
+  .nav-links {
+    position: fixed;
+    top: 54px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    max-width: 100vw;
+    background: linear-gradient(
+      135deg,
+      rgb(12, 24, 36) 10%,
+      rgb(64, 11, 8) 90%
+    );
+    flex-direction: column;
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 6px 24px #3a0c1055;
+    transition: transform 0.27s, opacity 0.27s;
+    transform: translateY(-160%);
+    opacity: 0;
+    pointer-events: none;
+    padding: 10px 0 12px 0;
+    z-index: 99;
+    align-items: stretch;
+  }
+  .nav-links.open {
+    transform: translateY(0%);
+    opacity: 1;
+    pointer-events: auto;
+    animation: fadeInMenu 0.32s linear;
+  }
+  .nav-links a {
+    font-size: 1.02rem;
+    /* padding: 0.65em 0.9em; */
+    border-radius: 0.5em;
+    /* margin: 0.07em 0.5em; */
+    background: rgba(32, 30, 35, 0.15);
+    width: auto;
+    min-width: 0;
+    text-align: left;
+    box-sizing: border-box;
+  }
+  .nav-burger {
+    display: flex;
+    margin-right: 4px;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-links {
+    border-radius: 0 0 12px 12px;
+    padding: 6px 0 8px 0;
+  }
+  .nav-links a {
+    font-size: 0.97rem;
+    padding: 0.53em 0.5em;
+    margin: 0.06em 0.32em;
+  }
+}
+
+#zen-music {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 110;
+  border-radius: 12px;
+  padding: 7px 13px 7px 12px;
+  box-shadow: 0 2px 14px #14244a55;
+  width: 260px;
+  max-width: 90vw;
+}
+
+@media (max-width: 450px) {
+  #zen-music {
+    right: 6px;
+    bottom: 100px;
+    width: 98vw;
+    max-width: 98vw;
+    border-radius: 7px;
+    padding: 5px 7px;
+  }
+}
+
+h1 {
+  font-weight: 100;
+}
+
+.zen-indicator {
+  position: fixed;
+  top: 32px;
+  left: 50vw;
+  transform: translateX(-50%);
+  padding: 0.7em 2.1em;
+  background: rgba(135, 180, 213, 0.22);
+  color: #6e94ae;
+  font-size: 1.12em;
+  font-weight: 500;
+  border-radius: 1.2em;
+  box-shadow: 0 6px 30px 0 #5a8ba822;
+  backdrop-filter: blur(8px);
+  text-align: center;
+  letter-spacing: 0.03em;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 200;
+}
+
+.zen-indicator.show {
+  opacity: 1;
+}
+
+.zen-indicator.hidden {
+  opacity: 0;
+}
+
+.zen-mode {
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+  height: 100vh;
+}
+.stars {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  top: 0;
+  left: 0;
+}
+
+/* Пример zen-режима для сайта */
+.zen-mode * {
+  transition: all 0.3s;
+}
+
+.zen-mode main {
+  position: relative;
+  max-width: 700px;
+  margin: 2em auto;
+  color: #fff;
+  padding: 2em 1.5em;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  font-size: 1.25em;
+  line-height: 1.7;
+}
+
+.planet-selector {
+  position: fixed;
+  left: 50vw;
+  top: 50vh;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  gap: 2em;
+  background: rgba(8, 14, 20, 0.45);
+  padding: 2em 2em 1em 2em;
+  border-radius: 2em;
+  box-shadow: 0 2px 32px #0004;
+}
+.planet {
+  font-size: 2em;
+  background: transparent;
+  border: none;
+  color: #fffc;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.planet:hover {
+  transform: scale(1.2) rotate(-5deg);
+  color: #ffed65;
+}
+
+/* Audio Controls Panel */
+:root {
+  --btn-size: 46px; /* размер круга */
+  --btn-color: #a9a6a6;
+}
+
+.controls {
+  position: fixed;
+  /* width: 100vw; */
+  bottom: 24px;
+  /* bottom: 0px; */
+  left: 24px;
+  /* left: 0px; */
+  /* background: rgba(34, 37, 49, 0.8); */
+  background-color: rosybrown;
+  border-radius: 16px;
+  padding: 0.7em 1.2em;
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  color: #fff;
+  z-index: 9999;
+  box-shadow: 0 2px 14px #0006;
+}
+.controls button {
+  width: var(--btn-size);
+  height: var(--btn-size);
+  background-color: #fff;
+  border: none;
+  display: inline-grid;
+  place-items: center;
+  color: var(--btn-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.05s, border-color 0.2s,
+    color 0.5s;
+  outline: none;
+  border: none;
+  font-size: 1.45em;
+  padding: 0 0.5em;
+}
+.controls button:hover {
+  color: #323230;
+  transition: all 1s ease;
+}
+#track-title {
+  margin-left: 1em;
+  font-size: 1em;
+  color: #ececec;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+}
+
+.planet-menu {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  z-index: 20;
+}
+.planet-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0.25em;
+  border-radius: 50%;
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+}
+.planet-btn:focus,
+.planet-btn:hover {
+  box-shadow: 0 0 0 4px #ffd90055;
+  outline: none;
+}
+.planet-btn svg {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+#center-planet {
+  position: fixed;
+  left: 50vw;
+  top: 50vh;
+  transform: translate(-50%, -50%) scale(1);
+  transition: all 0.5s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+  z-index: 10;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+#center-planet svg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 32px #0004;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 105%;
+  transform: translateY(-50%);
+  background: #222c;
+  color: #fff;
+  padding: 0.3em 0.9em;
+  border-radius: 8px;
+  white-space: nowrap;
+  font-size: 1em;
+  pointer-events: none;
+  z-index: 5;
+  box-shadow: 0 2px 10px #0005;
+  opacity: 0;
+  transition: opacity 0.17s;
+}
+
+.planet-btn:hover .tooltip,
+.planet-btn:focus .tooltip {
+  display: block;
+  opacity: 1;
+}
+
+/* 3D Planets Styles */
+.planet-3d {
+  animation: spin 6s linear infinite;
+  will-change: transform;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ПЛАНЕТА В ЦЕНТРЕ ЭКРАНА */
+#center-planet {
+  position: fixed;
+  left: 50vw;
+  top: 50vh;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.5s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+  z-index: 10;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto; /* нужно для клика */
+  cursor: zoom-in;
+}
+#center-planet.zoomed {
+  transform: translate(-50%, -50%) scale(1.7);
+  cursor: zoom-out;
+}
+/* КОНЕЦ СТИЛЕЙ ПЛАНЕТЫ В ЦЕНТРЕ ЭКРАНА */
