@@ -38,8 +38,11 @@ export function renderStarsBackground(container) {
   resizeCanvas();
 
   // Слои звезд
-  const stars1 = createStars(4500, 1.1, 320);
-  const stars2 = createStars(3000, 0.6, 210);
+  //   const stars1 = createStars(4500, 1.1, 320);
+  //   const stars2 = createStars(3000, 0.6, 210);
+  //   const stars3 = createStars(1100, 0.1, 120);
+  const stars1 = createStars(9000, 1.1, 320);
+  const stars2 = createStars(6000, 0.6, 210);
   const stars3 = createStars(1100, 0.1, 120);
   scene.add(stars1, stars2, stars3);
 
@@ -122,7 +125,11 @@ export function renderStarsBackground(container) {
     stars3.position.y = parallaxY * 0.8;
 
     // Мерцание слоев
-    stars1.material.opacity = 0.77 + 0.18 * Math.sin(time * 1.18);
+    // stars1.material.opacity = 0.77 + 0.18 * Math.sin(time * 1.18);
+    // stars2.material.opacity = 0.81 + 0.14 * Math.sin(time * 0.75);
+    // stars3.material.opacity = 0.86 + 0.1 * Math.cos(time * 1.35);
+
+    stars1.material.opacity = 0.3 + 0.18 * Math.sin(time * 0.3);
     stars2.material.opacity = 0.81 + 0.14 * Math.sin(time * 0.75);
     stars3.material.opacity = 0.86 + 0.1 * Math.cos(time * 1.35);
 

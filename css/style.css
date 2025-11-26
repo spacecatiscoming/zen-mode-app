@@ -53,7 +53,7 @@ nav {
   z-index: 10;
   /* background: linear-gradient(90deg, rgb(5, 22, 26) 0%, rgb(64, 11, 8) 100%); */
   /* box-shadow: 0 2px 16px #222c4444; */
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(1px);
 }
 
 .nav-logo {
@@ -67,6 +67,7 @@ nav {
 .nav-links {
   display: flex;
   gap: 1.5rem;
+  color: #fff;
 }
 
 .nav-links a {
@@ -294,7 +295,7 @@ h1 {
   left: 24px;
   /* left: 0px; */
   /* background: rgba(34, 37, 49, 0.8); */
-  background-color: rosybrown;
+  /* background-color: rosybrown; */
   border-radius: 16px;
   padding: 0.7em 1.2em;
   display: flex;
