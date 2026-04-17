@@ -4,20 +4,22 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.8rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  /* font-size: clamp(3rem, 3.5vw, 3.5rem); */
   font-weight: 100;
-  letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.38);
-  /* color: aliceblue; */
+  /* font-style: italic; */
+  letter-spacing: 0.16em;
+  color: rgba(210, 225, 245, 0.72);
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* позволяет переносить строку на маленьких экранах */
-  max-width: 90vw; /* ограничивает ширину текста */
+  flex-wrap: wrap;
+  max-width: 80vw;
   text-align: center;
   pointer-events: none;
   z-index: 1000;
   user-select: none;
-  line-height: 1.09;
+  line-height: 1.25;
 }
 
 .loader-letter {
@@ -25,18 +27,20 @@
   display: inline-block;
   transform: rotateY(-90deg);
   transition: opacity 0.8s;
-  font-size: inherit; /* унаследовать размер от контейнера */
+  font-size: inherit;
   word-break: keep-all;
 }
 
 .loader-letter.visible {
   opacity: 1;
-  animation: rotate-in 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  animation: rotate-in 1.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
 .loader-fadeout .loader-letter {
   opacity: 0 !important;
-  transition: opacity 0.6s, transform 0.6s;
+  transition:
+    opacity 0.6s,
+    transform 0.6s;
 }
 
 @keyframes rotate-in {
@@ -48,27 +52,19 @@
   }
 }
 
-/* Адаптация под мобильные устройства */
 @media (max-width: 700px) {
   #loader-text {
-    font-size: 1.35rem;
-    letter-spacing: 0.09em;
-    max-width: 98vw;
+    letter-spacing: 0.1em;
+    max-width: 92vw;
     padding: 0 4vw;
   }
-  .loader-letter {
-    font-size: inherit;
-  }
 }
+
 @media (max-width: 400px) {
   #loader-text {
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    max-width: 98vw;
+    letter-spacing: 0.07em;
+    max-width: 96vw;
     padding: 0 2vw;
-    line-height: 1.05;
-  }
-  .loader-letter {
-    font-size: inherit;
+    line-height: 1.15;
   }
 }

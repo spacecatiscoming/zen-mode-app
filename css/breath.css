@@ -1,113 +1,181 @@
-/* ДЫХАТЕЛЬНАЯ ПРАКТИКА СТИЛИ */
-/* КОСМИЧЕСКИЙ ФОН ДЛЯ СТРАНИЦЫ ДЫХАНИЯ */
+/* ============================================================
+   BREATHING — PREMIUM DARK SPA
+   ============================================================ */
+
+/* ---- Фон ---- */
 .breathing-bg {
   position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 0;
-  background: radial-gradient(ellipse at 50% 60%, #1c2734 0%, #273a50 44%, #421c1c 100%);
   pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 80% 60% at 50% 70%,
+      rgba(47, 82, 120, 0.45) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 20% 20%,
+      rgba(80, 40, 60, 0.25) 0%,
+      transparent 60%
+    ),
+    linear-gradient(170deg, #0c1220 0%, #111827 50%, #0e0c18 100%);
 }
 
+/* ---- Страница ---- */
 .breathing-page {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  min-height: 90vh;
+  justify-content: center;
+  min-height: 100vh;
   width: 100vw;
-  gap: 1.2em;
+  padding: 60px 24px;
+  box-sizing: border-box;
+  gap: 0;
 }
 
+/* ---- Анимации входа ---- */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Заголовок ---- */
 .breath-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 1.3em;
-  letter-spacing: 0.07em;
-  color: #82d0f6;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  color: rgba(200, 225, 245, 0.82);
   text-align: center;
-  width: 100%;
-  text-shadow: 0 0 24px #2f7fa7a8;
+  margin-bottom: 40px;
+  text-shadow: 0 0 60px rgba(100, 180, 230, 0.18);
+  animation: fade-up 0.9s cubic-bezier(0.19, 1, 0.22, 1) both;
 }
 
-/* Селектор режимов */
+/* ---- Режимы ---- */
 .breathing-modes {
   display: flex;
-  gap: 0.85em;
+  gap: 6px;
   justify-content: center;
-  margin-bottom: 1.1em;
+  margin-bottom: 16px;
   flex-wrap: wrap;
+  animation: fade-up 0.9s cubic-bezier(0.19, 1, 0.22, 1) 0.15s both;
 }
+
 .mode-btn {
-  padding: 0.65em 1.22em;
-  border-radius: 1.5em;
-  background: rgba(74, 113, 161, 0.17);
-  color: #bde8fb;
-  border: 1.5px solid transparent;
-  font-size: 1.05em;
-  letter-spacing: 0.07em;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.18s, color 0.18s, border-color 0.21s;
-  outline: none;
-  margin: 0 2px;
-}
-.mode-btn:hover, .mode-btn:focus {
-  background: rgba(122, 212, 255, 0.21);
-  color: #e0faff;
-  border-color: #60cbfd67;
-}
-.mode-btn.active {
-  background: linear-gradient(90deg, #79c1fb 15%, #2d91bc 99%);
-  color: #223558;
-  border-color: #b1ecf6c9;
-  font-weight: 700;
-}
-
-.breath-instruction {
-  font-size: 1.08rem;
-  margin-top: 0.5em;
-  color: #a3d6ef;
-  opacity: 0.92;
-  text-align: center;
-  width: 100%;
-  line-height: 1.55;
-  text-shadow: 0 0 10px #268cc766;
-  transition: opacity 0.25s;
-}
-
-.breath-btn {
-  margin: 0 auto 2em auto;
-  padding: 1em 2.3em;
-  border: none;
+  padding: 0.45em 1.4em;
   border-radius: 2em;
-  background: linear-gradient(90deg, #375759 30%, #426bb5 100%);
-  color: #e3f9ff;
-  font-size: 1.11rem;
+  background: transparent;
+  color: rgba(160, 200, 225, 0.45);
+  border: 1px solid rgba(120, 180, 220, 0.15);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   cursor: pointer;
-  backdrop-filter: blur(9px);
-  border: 1px solid #7bc3ea33;
-  box-shadow: 0 2px 24px #5dcfff42;
-  transition: background 0.3s, color 0.3s, box-shadow 0.2s;
+  transition:
+    color 0.3s,
+    border-color 0.3s,
+    background 0.3s;
   outline: none;
-  letter-spacing: 0.04em;
-}
-.breath-btn:hover,
-.breath-btn:focus {
-  background: linear-gradient(90deg, #426bb5 60%, #7ceae7 100%);
-  color: #2f5e69;
-  box-shadow: 0 2px 36px #85d6f781;
 }
 
+.mode-btn:hover {
+  color: rgba(200, 235, 255, 0.75);
+  border-color: rgba(120, 200, 240, 0.32);
+  background: rgba(100, 180, 230, 0.05);
+}
+
+.mode-btn.active {
+  color: rgba(210, 240, 255, 0.9);
+  border-color: rgba(140, 210, 250, 0.45);
+  background: rgba(100, 180, 230, 0.08);
+}
+
+/* ---- Инструкция ---- */
+.breath-instruction {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  color: rgba(180, 210, 235, 0.65);
+  text-align: center;
+  margin-bottom: 36px;
+  line-height: 1.7;
+  transition: opacity 0.25s;
+  animation: fade-up 0.9s cubic-bezier(0.19, 1, 0.22, 1) 0.28s both;
+}
+
+/* ---- Кнопка запуска ---- */
+.breath-btn {
+  position: relative;
+  padding: 0.8em 3em;
+  border: 1px solid rgba(140, 200, 240, 0.22);
+  border-radius: 2em;
+  background: transparent;
+  color: rgba(190, 225, 245, 0.65);
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    color 0.4s,
+    border-color 0.4s,
+    box-shadow 0.4s;
+  outline: none;
+  overflow: hidden;
+  margin-bottom: 56px;
+  animation: fade-up 0.9s cubic-bezier(0.19, 1, 0.22, 1) 0.42s both;
+}
+
+.breath-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(100, 180, 230, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.breath-btn:hover {
+  color: rgba(220, 242, 255, 0.92);
+  border-color: rgba(140, 210, 250, 0.42);
+  box-shadow:
+    0 0 30px rgba(100, 190, 240, 0.1),
+    inset 0 0 20px rgba(100, 180, 230, 0.04);
+}
+
+.breath-btn:hover::before {
+  opacity: 1;
+}
+
+/* ---- Анимация дыхания ---- */
 .breath-anim {
-  position: static;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 1em;
+  gap: 28px;
   width: 100%;
 }
 
@@ -115,79 +183,160 @@
   display: none;
 }
 
+/* ---- Круг ---- */
 .breath-circle {
-  width: 140px;
-  height: 140px;
+  position: relative;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 32%, #82e9fb 0%, #3fa6f7 65%, #293f54 100%);
-  border: 1px solid #6fe7ff66;
-  box-shadow: 0 0 38px #7fe0ff55;
-  backdrop-filter: blur(7px);
-  margin: 0 auto 0.8em auto;
-  animation: breath-flow 17s ease-in-out infinite;
-  transition: background 0.8s, box-shadow 0.8s, border-color 0.7s;
-}
-@keyframes breath-flow {
-  0% { transform: scale(0.85); opacity: 0.67; }
-  23% { transform: scale(1.2); opacity: 1; }
-  70% { transform: scale(1.2); opacity: 1; }
-  94% { transform: scale(0.85); opacity: 0.67; }
-  100% { transform: scale(0.85); opacity: 0.67; }
+  background: radial-gradient(
+    circle at 38% 35%,
+    #7fd8ff 0%,
+    #3fa6f7 60%,
+    #1a3a5c 100%
+  );
+  box-shadow:
+    0 0 0 1px rgba(120, 210, 255, 0.1),
+    0 0 40px rgba(80, 180, 240, 0.22),
+    0 0 90px rgba(60, 150, 220, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  will-change: transform;
+  transition:
+    background 0.8s ease,
+    box-shadow 0.8s ease;
 }
 
+/* ---- Таймер внутри круга ---- */
+.breath-timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2.8rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  line-height: 1;
+}
+
+/* ---- Лейбл фазы ---- */
 .breath-text {
-  font-size: 1.43rem;
-  font-weight: 500;
-  color: #7fdfff;
-  margin-top: 0.7em;
-  letter-spacing: 0.11em;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  transition: color 0.4s;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(210, 238, 255, 0.95);
+  letter-spacing: 0.14em;
   text-align: center;
-  min-width: 80px;
-  text-shadow: 0 0 14px #79e8ffa8;
+  min-height: 2rem;
+  text-shadow: 0 0 24px rgba(120, 200, 240, 0.5);
 }
 
-/* Мобильная адаптация */
+/* ---- Цитата ---- */
+.breath-quote {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(190, 220, 240, 0.65);
+  text-align: center;
+  letter-spacing: 0.07em;
+  line-height: 1.65;
+  min-height: 1.8em;
+  max-width: 380px;
+  transition: opacity 0.4s ease;
+}
+
+/* ---- Счётчик циклов ---- */
+.breath-cycle {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.22);
+  text-align: center;
+  letter-spacing: 0.1em;
+  min-height: 1.2em;
+  transition: opacity 0.4s;
+}
+
+/* ---- Доступность ---- */
+@media (prefers-reduced-motion: reduce) {
+  .breath-title,
+  .breathing-modes,
+  .breath-instruction,
+  .breath-btn {
+    animation: none;
+  }
+}
+
+/* ---- Мобильная адаптация ---- */
 @media (max-width: 600px) {
   .breathing-page {
-    min-height: 80vh;
-    padding: 0 8px;
-    gap: 0.8em;
+    padding: 80px 16px 40px;
+    justify-content: flex-start;
   }
+
   .breath-title {
-    font-size: 1.16rem;
-    margin-bottom: 0.8em;
+    font-size: 1.5rem;
+    margin-bottom: 28px;
   }
-  .breathing-modes { gap: 0.51em; }
-  .mode-btn { font-size: 0.96em; padding: 0.6em .75em; }
-  .breath-btn { font-size: 0.99rem; padding: 0.72em 1.1em; margin-bottom: 1em; }
-  .breath-circle { width: 74px; height: 74px; }
-  .breath-text { font-size: 1.03rem; min-width: 56px; }
-  .breath-instruction { font-size: 0.97rem; margin-top: 0.7em; }
+
+  .breathing-modes {
+    margin-bottom: 14px;
+  }
+
+  .mode-btn {
+    font-size: 0.68rem;
+    padding: 0.45em 1em;
+  }
+
+  .breath-instruction {
+    font-size: 0.92rem;
+    color: rgba(190, 220, 240, 0.82);
+    margin-bottom: 28px;
+  }
+
+  .breath-btn {
+    font-size: 0.75rem;
+    padding: 0.75em 2.4em;
+    margin-bottom: 40px;
+  }
+
+  .breath-circle {
+    width: 130px;
+    height: 130px;
+  }
+
+  .breath-timer {
+    font-size: 2.2rem;
+  }
+
+  .breath-text {
+    font-size: 1.25rem;
+    min-height: 1.8rem;
+  }
+
+  .breath-quote {
+    font-size: 0.9rem;
+    max-width: 88vw;
+  }
 }
 
-.stars-canvas {
-  position: fixed;
-  z-index: 1;
-  left: 0; top: 0;
-  width: 100vw; height: 100vh;
-  pointer-events: none;
+@media (max-width: 380px) {
+  .breath-circle {
+    width: 110px;
+    height: 110px;
+  }
+  .breath-timer {
+    font-size: 1.9rem;
+  }
+  .mode-btn {
+    font-size: 0.63rem;
+    padding: 0.4em 0.85em;
+  }
 }
-
-.breath-quote {
-  font-size: 1.09rem;
-  color: #eaf8fd;
-  opacity: 0.95;
-  margin-top: 1.3em;
-  text-align: center;
-  font-style: italic;
-  letter-spacing: 0.08em;
-  min-height: 2em;   /* чтобы не прыгало при смене */
-  transition: opacity 0.35s;
-}
-
-
-
-
-/* КОНЕЦ ДЫХАТЕЛЬНОЙ ПРАКТИКИ */
