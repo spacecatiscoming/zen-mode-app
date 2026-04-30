@@ -1,6 +1,5 @@
 /* ============================================
    BLOG — PREMIUM CREAM EDITION
-   Fonts: Cormorant Garamond (display) + Lato (body)
    ============================================ */
 
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap");
@@ -20,6 +19,11 @@
   --font-body: "Lato", sans-serif;
 }
 
+/* ---- Страница блога ---- */
+body[data-page="blog"] {
+  overflow: auto;
+}
+
 /* ---- Лейаут ---- */
 .blog-main-layout {
   display: flex;
@@ -30,7 +34,6 @@
   padding-top: 54px;
   box-sizing: border-box;
   background: var(--blog-bg);
-  overflow: hidden; /* ← если есть это — убери */
 }
 
 /* ---- Боковое меню ---- */
@@ -105,11 +108,9 @@
 .blog-menu-item:hover .blog-menu-title {
   color: rgba(245, 240, 232, 0.9);
 }
-
 .blog-menu-item:hover .blog-menu-date {
   color: rgba(176, 168, 158, 0.65);
 }
-
 .blog-menu-item:hover {
   padding-left: 34px;
 }
@@ -118,11 +119,9 @@
   color: var(--blog-gold);
   font-weight: 400;
 }
-
 .blog-menu-item.active .blog-menu-date {
   color: rgba(201, 169, 110, 0.55);
 }
-
 .blog-menu-item.active {
   border-left-color: var(--blog-gold);
   padding-left: 34px;
@@ -135,8 +134,8 @@
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
-  height: calc(100vh - 54px); /* ✅ ограничиваем высоту */
-  overflow-y: auto; /* ✅ скролл внутри зоны */
+  height: calc(100vh - 54px);
+  overflow-y: auto;
   background: var(--blog-bg);
   padding: 64px 48px 80px 64px;
   box-sizing: border-box;
@@ -191,7 +190,6 @@
   letter-spacing: -0.01em;
 }
 
-/* Декоративный разделитель */
 .blog-divider {
   display: flex;
   align-items: center;
@@ -227,7 +225,6 @@
   line-height: 1.82;
 }
 
-/* ---- Подзаголовки внутри статьи ---- */
 .blog-card-text h4 {
   font-family: var(--font-display);
   font-size: 1.35rem;
@@ -239,7 +236,6 @@
   line-height: 1.3;
 }
 
-/* ---- Цитата внутри статьи ---- */
 .blog-quote {
   border-left: 2px solid var(--blog-gold);
   padding-left: 1.4em;
@@ -270,6 +266,39 @@
   height: 14px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b0a89e' stroke-width='1.5'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3 3'/%3E%3C/svg%3E");
   background-size: contain;
+}
+
+/* ---- Навигация на странице блога ---- */
+body[data-page="blog"] nav {
+  background: rgba(245, 240, 232, 0.96) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(28, 24, 20, 0.07);
+  box-shadow: 0 1px 20px rgba(28, 24, 20, 0.05);
+}
+
+body[data-page="blog"] .nav-logo,
+body[data-page="blog"] .nav-links a,
+body[data-page="blog"] .nav-links-right a {
+  color: rgba(28, 24, 20, 0.55) !important;
+  text-shadow: none;
+}
+
+body[data-page="blog"] .nav-links a::after,
+body[data-page="blog"] .nav-links-right a::after {
+  background: #c9a96e;
+}
+
+body[data-page="blog"] .nav-links a:hover,
+body[data-page="blog"] .nav-links-right a:hover,
+body[data-page="blog"] .nav-links a.active,
+body[data-page="blog"] .nav-links-right a.active,
+body[data-page="blog"] .nav-logo:hover {
+  color: #1c1814 !important;
+  opacity: 1;
+}
+
+body[data-page="blog"] .nav-burger span {
+  background: rgba(28, 24, 20, 0.7) !important;
 }
 
 /* ---- Мобильная адаптация ---- */
@@ -311,7 +340,7 @@
   }
   .blog-menu-date {
     display: none;
-  } /* на мобиле дату прячем — тесно */
+  }
   .blog-menu-item:hover {
     padding-left: 16px;
   }
@@ -322,8 +351,8 @@
     background: rgba(201, 169, 110, 0.08);
   }
   .blog-article-viewport {
-    height: auto; /* ← убираем фиксированную высоту */
-    overflow-y: visible; /* ← скролл через всю страницу */
+    height: auto;
+    overflow-y: visible;
     padding: 36px 20px 60px 20px;
     min-height: unset;
   }
@@ -343,32 +372,4 @@
   .blog-quote {
     font-size: 1.05rem !important;
   }
-}
-
-/* ---- Навигация на светлой странице блога ---- */
-body[data-page="blog"] nav,
-body[data-page="blog"] .navbar {
-  background: rgba(245, 240, 232, 0.96) !important;
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(28, 24, 20, 0.08);
-  box-shadow: 0 1px 16px rgba(28, 24, 20, 0.06);
-}
-
-body[data-page="blog"] .nav-logo,
-body[data-page="blog"] .nav-links a,
-body[data-page="blog"] .nav-burger {
-  color: #1c1814 !important;
-}
-
-body[data-page="blog"] .nav-links a:hover {
-  color: #c9a96e !important;
-}
-
-body[data-page="blog"] .nav-links a.active {
-  color: #c9a96e !important;
-  border-bottom-color: #c9a96e !important;
-}
-
-body[data-page="blog"] .nav-burger span {
-  background: #1c1814 !important;
 }

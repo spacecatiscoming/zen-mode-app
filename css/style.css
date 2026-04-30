@@ -265,7 +265,7 @@ body {
 }
 
 /* ============================================================
-   NAV — ПРЕМИУМ, СИММЕТРИЧНАЯ
+   NAV
    ============================================================ */
 nav {
   display: grid;
@@ -283,7 +283,6 @@ nav {
     transparent 100%
   );
   transition: background 0.35s;
-  z-index: 100;
 }
 
 .nav-links {
@@ -306,8 +305,6 @@ nav {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.82);
   white-space: nowrap;
-  position: static;
-  transform: none;
   transition:
     color 0.35s,
     letter-spacing 0.4s;
@@ -340,7 +337,6 @@ nav {
 
 .nav-links a,
 .nav-links-right a {
-  /* color: rgba(255, 255, 255, 0.5); */
   color: #fff;
   text-decoration: none;
   font-family: "Cormorant Garamond", Georgia, serif;
@@ -463,6 +459,41 @@ nav {
   color: rgba(255, 255, 255, 0.95);
 }
 
+/* Hover на Латыни */
+.nav-links a[data-lat],
+.nav-links-right a[data-lat] {
+  position: relative;
+}
+
+.nav-links a[data-lat]::before,
+.nav-links-right a[data-lat]::before {
+  content: attr(data-lat);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.25s,
+    transform 0.25s;
+}
+
+.nav-links a[data-lat]:hover,
+.nav-links-right a[data-lat]:hover {
+  color: transparent;
+}
+
+.nav-links a[data-lat]:hover::before,
+.nav-links-right a[data-lat]:hover::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ============================================================
    ANIMATIONS
    ============================================================ */
@@ -535,9 +566,6 @@ h1 {
   .nav-burger {
     display: flex;
   }
-  .nav-mobile {
-    display: flex;
-  }
   .nav-logo {
     font-size: 1.05rem;
     letter-spacing: 0.38em;
@@ -587,85 +615,4 @@ h1 {
     padding: 0.7em 1.8em;
     letter-spacing: 0.14em;
   }
-}
-
-body[data-page="blog"] {
-  overflow: auto;
-}
-
-@media (max-width: 900px) {
-  .blog-main-layout {
-    overflow: visible;
-  }
-  .blog-article-viewport {
-    height: auto;
-    overflow-y: visible;
-    min-height: unset;
-  }
-}
-
-/* ============================================================
-   BLOG — СВЕТЛАЯ ТЕМА
-   ============================================================ */
-body[data-page="blog"] nav {
-  background: rgba(245, 240, 232, 0.96) !important;
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(28, 24, 20, 0.07);
-  box-shadow: 0 1px 20px rgba(28, 24, 20, 0.05);
-}
-body[data-page="blog"] .nav-logo,
-body[data-page="blog"] .nav-links a,
-body[data-page="blog"] .nav-links-right a {
-  color: rgba(28, 24, 20, 0.55) !important;
-  text-shadow: none;
-}
-body[data-page="blog"] .nav-links a::after,
-body[data-page="blog"] .nav-links-right a::after {
-  background: #c9a96e;
-}
-body[data-page="blog"] .nav-links a:hover,
-body[data-page="blog"] .nav-links-right a:hover,
-body[data-page="blog"] .nav-links a.active,
-body[data-page="blog"] .nav-links-right a.active,
-body[data-page="blog"] .nav-logo:hover {
-  color: #1c1814 !important;
-  opacity: 1;
-}
-body[data-page="blog"] .nav-burger span {
-  background: rgba(28, 24, 20, 0.7) !important;
-}
-
-/* Hover на Латыни */
-.nav-links a[data-lat],
-.nav-links-right a[data-lat] {
-  position: relative;
-}
-
-.nav-links a[data-lat]::before,
-.nav-links-right a[data-lat]::before {
-  content: attr(data-lat);
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-style: italic;
-  letter-spacing: 0.18em;
-  color: rgba(255, 255, 255, 0.9);
-  opacity: 0;
-  transform: translateY(4px);
-  transition:
-    opacity 0.25s,
-    transform 0.25s;
-}
-
-.nav-links a[data-lat]:hover,
-.nav-links-right a[data-lat]:hover {
-  color: transparent;
-}
-
-.nav-links a[data-lat]:hover::before,
-.nav-links-right a[data-lat]:hover::before {
-  opacity: 1;
-  transform: translateY(0);
 }
