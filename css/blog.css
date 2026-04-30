@@ -26,6 +26,8 @@ body[data-page="blog"] {
 
 /* ---- Лейаут ---- */
 .blog-main-layout {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: stretch;
   width: 100vw;
