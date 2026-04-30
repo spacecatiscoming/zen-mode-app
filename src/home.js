@@ -3,8 +3,7 @@ import { createZenPlayer } from "./player.js";
 import { animateLoaderText } from "./loaderText.js";
 import { renderStarsBackground } from "./starsBackground.js";
 
-const BASE =
-  "https://github.com/spacecatiscoming/zen-mode-app/releases/download/v1.0";
+const BASE = "https://spacecatiscoming.github.io/zen-mode-app/music";
 
 const tracks = [
   { src: `${BASE}/mindful.mp3`, title: "Звёздный поток" },
@@ -23,24 +22,6 @@ const tracks = [
   { src: `${BASE}/soul.mp3`, title: "Душа" },
   { src: `${BASE}/twilight.mp3`, title: "Тихое место" },
 ];
-
-// const tracks = [
-//   { src: "/music/mindful.mp3", title: "Звёздный поток" },
-//   { src: "/music/meditation-1.mp3", title: "Медитация 1" },
-//   { src: "/music/meditation-2.mp3", title: "Медитация 2" },
-//   { src: "/music/meditation-3.mp3", title: "Медитация 3" },
-//   { src: "/music/meditation-4.mp3", title: "Медитация 4" },
-//   { src: "/music/meditation-5.mp3", title: "Медитация 5" },
-//   { src: "/music/meditation-6.mp3", title: "Медитация 6" },
-//   { src: "/music/meditation-7.mp3", title: "Медитация 7" },
-//   { src: "/music/breeze.mp3", title: "Тишина Вселенной" },
-//   { src: "/music/reflection.mp3", title: "Умные рефлексы" },
-//   { src: "/music/celestial.mp3", title: "Погружение" },
-//   { src: "/music/clouds.mp3", title: "Невесомость" },
-//   { src: "/music/dream.mp3", title: "Давай мечтать вместе" },
-//   { src: "/music/soul.mp3", title: "Душа" },
-//   { src: "/music/twilight.mp3", title: "Тихое место" },
-// ];
 
 export function renderHome(container) {
   document.body.style.overflow = "hidden";
