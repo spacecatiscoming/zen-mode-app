@@ -277,6 +277,7 @@
   .blog-main-layout {
     flex-direction: column;
     padding-top: 54px;
+    overflow: visible;
   }
   .blog-list-menu {
     width: 100vw;
@@ -321,6 +322,8 @@
     background: rgba(201, 169, 110, 0.08);
   }
   .blog-article-viewport {
+    height: auto; /* ← убираем фиксированную высоту */
+    overflow-y: visible; /* ← скролл через всю страницу */
     padding: 36px 20px 60px 20px;
     min-height: unset;
   }
