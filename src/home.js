@@ -3,23 +3,44 @@ import { createZenPlayer } from "./player.js";
 import { animateLoaderText } from "./loaderText.js";
 import { renderStarsBackground } from "./starsBackground.js";
 
+const BASE =
+  "https://github.com/spacecatiscoming/zen-mode-app/releases/download/v1.0";
+
 const tracks = [
-  { src: "/music/mindful.mp3", title: "Звёздный поток" },
-  { src: "/music/meditation-1.mp3", title: "Медитация 1" },
-  { src: "/music/meditation-2.mp3", title: "Медитация 2" },
-  { src: "/music/meditation-3.mp3", title: "Медитация 3" },
-  { src: "/music/meditation-4.mp3", title: "Медитация 4" },
-  { src: "/music/meditation-5.mp3", title: "Медитация 5" },
-  { src: "/music/meditation-6.mp3", title: "Медитация 6" },
-  { src: "/music/meditation-7.mp3", title: "Медитация 7" },
-  { src: "/music/breeze.mp3", title: "Тишина Вселенной" },
-  { src: "/music/reflection.mp3", title: "Умные рефлексы" },
-  { src: "/music/celestial.mp3", title: "Погружение" },
-  { src: "/music/clouds.mp3", title: "Невесомость" },
-  { src: "/music/dream.mp3", title: "Давай мечтать вместе" },
-  { src: "/music/soul.mp3", title: "Душа" },
-  { src: "/music/twilight.mp3", title: "Тихое место" },
+  { src: `${BASE}/mindful.mp3`, title: "Звёздный поток" },
+  { src: `${BASE}/meditation-1.mp3`, title: "Медитация 1" },
+  { src: `${BASE}/meditation-2.mp3`, title: "Медитация 2" },
+  { src: `${BASE}/meditation-3.mp3`, title: "Медитация 3" },
+  { src: `${BASE}/meditation-4.mp3`, title: "Медитация 4" },
+  { src: `${BASE}/meditation-5.mp3`, title: "Медитация 5" },
+  { src: `${BASE}/meditation-6.mp3`, title: "Медитация 6" },
+  { src: `${BASE}/meditation-7.mp3`, title: "Медитация 7" },
+  { src: `${BASE}/breeze.mp3`, title: "Тишина Вселенной" },
+  { src: `${BASE}/reflection.mp3`, title: "Умные рефлексы" },
+  { src: `${BASE}/celestial.mp3`, title: "Погружение" },
+  { src: `${BASE}/clouds.mp3`, title: "Невесомость" },
+  { src: `${BASE}/dream.mp3`, title: "Давай мечтать вместе" },
+  { src: `${BASE}/soul.mp3`, title: "Душа" },
+  { src: `${BASE}/twilight.mp3`, title: "Тихое место" },
 ];
+
+// const tracks = [
+//   { src: "/music/mindful.mp3", title: "Звёздный поток" },
+//   { src: "/music/meditation-1.mp3", title: "Медитация 1" },
+//   { src: "/music/meditation-2.mp3", title: "Медитация 2" },
+//   { src: "/music/meditation-3.mp3", title: "Медитация 3" },
+//   { src: "/music/meditation-4.mp3", title: "Медитация 4" },
+//   { src: "/music/meditation-5.mp3", title: "Медитация 5" },
+//   { src: "/music/meditation-6.mp3", title: "Медитация 6" },
+//   { src: "/music/meditation-7.mp3", title: "Медитация 7" },
+//   { src: "/music/breeze.mp3", title: "Тишина Вселенной" },
+//   { src: "/music/reflection.mp3", title: "Умные рефлексы" },
+//   { src: "/music/celestial.mp3", title: "Погружение" },
+//   { src: "/music/clouds.mp3", title: "Невесомость" },
+//   { src: "/music/dream.mp3", title: "Давай мечтать вместе" },
+//   { src: "/music/soul.mp3", title: "Душа" },
+//   { src: "/music/twilight.mp3", title: "Тихое место" },
+// ];
 
 export function renderHome(container) {
   document.body.style.overflow = "hidden";
